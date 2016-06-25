@@ -1,0 +1,39 @@
+#title_info{
+	margin-top: 25px;
+	margin-left: 50px;
+	margin-right: 50px;
+	color: #ffff99;
+	font-size: 22px;
+	width: 500px;
+	line-height:120% 
+}
+form{
+	position: absolute;
+	left: 97px;/*(600-400-6)/2*/
+}
+textarea,input{
+	border: 3px solid #00ffcc;
+	background-color: black;
+	color: #ffff99;
+	font-size: 22px;
+	width: 400px;
+	border-radius:20px;
+}
+#name{text-align: center;}
+#message{height: 150px;}
+#btnSubmit{
+	width: 100px;
+	padding: 5px;
+	color: #00ffcc;
+	font-family: myFont;
+	font-size: 15px;
+	position: absolute;
+	left: 153px;
+}
+#info{
+	position: absolute;
+	bottom: -90px;
+	color: #ffff99;
+	font-size: 15px;
+	line-height: 130%;
+}

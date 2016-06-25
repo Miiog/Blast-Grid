@@ -1,0 +1,110 @@
+ <!doctype html> 
+<html> 
+<head> 
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>键盘事件</title> 
+	<style type="text/css"> 
+		td { text-align:center; } 
+	</style> 
+
+	<script type="text/javascript"> 
+		window.onload=function(){ 
+			document.onkeydown = showKeyDown 
+			document.onkeyup = showKeyUp 
+			document.onkeypress = showKeyPress 
+		}
+		function showKeyDown(evt) { 
+			evt = (evt) ? evt : window.event 
+			document.getElementById("pressKeyCode").innerHTML = 0 
+			document.getElementById("upKeyCode").innerHTML = 0 
+			document.getElementById("pressCharCode").innerHTML = 0 
+			document.getElementById("upCharCode").innerHTML = 0 
+			restoreModifiers("") 
+			restoreModifiers("Down") 
+			restoreModifiers("Up") 
+			document.getElementById("downKeyCode").innerHTML = evt.keyCode 
+			if (evt.charCode) { 
+				document.getElementById("downCharCode").innerHTML = evt.charCode 
+			} 
+			showModifiers("Down", evt) 
+		} 
+
+		function showKeyUp(evt) { 
+			evt = (evt) ? evt : window.event 
+			document.getElementById("upKeyCode").innerHTML = evt.keyCode 
+			if (evt.charCode) { 
+				document.getElementById("upCharCode").innerHTML = evt.charCode 
+			} 
+			showModifiers("Up", evt) 
+			return false 
+		} 
+
+		function showKeyPress(evt) { 
+			evt = (evt) ? evt : window.event 
+			document.getElementById("pressKeyCode").innerHTML = evt.keyCode 
+			if (evt.charCode) { 
+				document.getElementById("pressCharCode").innerHTML = evt.charCode 
+			} 
+
+		showModifiers("", evt) 
+		return false 
+		} 
+
+		function showModifiers(ext, evt) { 
+			restoreModifiers(ext) 
+			if (evt.shiftKey) { 
+				document.getElementById("shift" + ext).style.backgroundColor = "#ff0000" 
+			} 
+			if (evt.ctrlKey) { 
+				document.getElementById("ctrl" + ext).style.backgroundColor = "#00ff00" 
+			} 
+			if (evt.altKey) { 
+				document.getElementById("alt" + ext).style.backgroundColor = "#0000ff" 
+			} 
+		} 
+
+		function restoreModifiers(ext) { 
+			document.getElementById("shift" + ext).style.backgroundColor = "#ffffff" 
+			document.getElementById("ctrl" + ext).style.backgroundColor = "#ffffff" 
+			document.getElementById("alt" + ext).style.backgroundColor = "#ffffff" 
+		} 
+	</script> 
+</head> 
+<body> 
+<h3>键盘事件</h3> 
+<form> 
+<table border=1 cellpadding="2" cellspacing="0"> 
+<tr> 
+<th></th> 
+<th>onKeyDown</th> 
+<th>onKeyPress</th> 
+<th>onKeyUp</th> 
+</tr> 
+<tr> 
+<th>Key Codes</th> 
+<td id="downKeyCode">0</td> 
+<td id="pressKeyCode">0</td> 
+<td id="upKeyCode">0</td> 
+</tr> 
+<tr> 
+<th>Char Codes (IE5/Mac; NN6)</th> 
+<td id="downCharCode">0</td> 
+<td id="pressCharCode">0</td> 
+<td id="upCharCode">0</td> 
+</tr> 
+<tr> 
+<th rowspan="3">Modifier Keys</th> 
+<td><span id="shiftdown">Shift</span></td> 
+<td><span id="shift">Shift</span></td> 
+<td><span id="shiftUp">Shift</span></td> 
+</tr> 
+<tr> 
+<td><span id="ctrlDown">Ctrl</span></td> 
+<td><span id="ctrl">Ctrl</span></td> 
+<td><span id="ctrlUp">Ctrl</span></td> 
+</tr> 
+<tr> 
+<td><span id="altdown">Alt</span></td> 
+<td><span id="alt">Alt</span></td> 
+<td><span id="altUp">Alt</span></td> 
+</tr> 

@@ -1,0 +1,18 @@
+body{
+	background-color: black;
+	margin-top: 50px;
+	color: #00ffcc;
+	font-family: myFont;
+}
+.battlefield{
+	position: relative;
+	margin: auto;
+	width: 600px;
+	height: 600px;
+	border: 5px solid #00ffcc;
+}
+
+@font-face {
+    font-family: myFont;
+    src: url(PressStart2P-Regular.ttf);
+}
